@@ -1,7 +1,5 @@
 package com.example.metagain;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class Homepage extends AppCompatActivity {
 
-    ImageButton alerts;
+    ImageButton requests;
     ImageButton meetings;
     ImageButton profile;
     Button inRadius;
+    ImageButton contactProfile;
 
     @SuppressLint({"MissingInflatedId"})
     @Override
@@ -22,11 +23,11 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-        alerts = findViewById(R.id.homeToAlerts);
-        alerts.setOnClickListener(new View.OnClickListener() {
+        requests = findViewById(R.id.homeToRequests);
+        requests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openAlerts();
+                openRequests();
             }
         });
 
@@ -53,10 +54,18 @@ public class Homepage extends AppCompatActivity {
                 openInRadius();
             }
         });
+
+        contactProfile = findViewById(R.id.buttonToContactProfile);
+        contactProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openContactProfile();
+            }
+        });
     }
 
-    public void openAlerts() {
-        Intent intent = new Intent(this, Alerts.class);
+    public void openRequests() {
+        Intent intent = new Intent(this, Requests.class);
         startActivity(intent);
     }
 
@@ -72,6 +81,11 @@ public class Homepage extends AppCompatActivity {
 
     public void openInRadius() {
         Intent intent = new Intent(this, HomepageInRadius.class);
+        startActivity(intent);
+    }
+
+    public void openContactProfile() {
+        Intent intent = new Intent(this, ContactProfile.class);
         startActivity(intent);
     }
 }

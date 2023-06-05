@@ -1,8 +1,10 @@
 package com.example.metagain;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.example.metagain.R;
 
 public class HomepageInRadius extends AppCompatActivity {
 
